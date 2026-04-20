@@ -1,0 +1,130 @@
+#+auto_tangle: t
+
+* early-init.el
+:PROPERTIES:
+:header-args: :tangle ~/.emacs.d/early-init.el
+:END:
+
+** Header
+
+#+begin_src emacs-lisp
+  ;; early-init.el -*- lexical-binding: t; -*-
+  ;; NOTE: early-init.el is generated from emacs.org.
+  ;;       Please edit that file instead.
+#+end_src
+
+** Add Termux-Bin to PATH
+
+#+begin_src emacs-lisp
+  (when (string-equal system-type "android")
+    (let ((termuxpath "/data/data/com.termux/files/usr/bin"))
+      (setenv "PATH" (concat (getenv "PATH") ":" termuxpath))
+      (setq exec-path (append exec-path (list termuxpath)))))
+#+end_src
+
+* init.el
+:PROPERTIES:
+:header-args: :tangle ~/.emacs.d/init.el
+:END:
+
+** Header
+
+#+begin_src emacs-lisp
+  ;; init.el -*- lexical-binding: t; -*-
+  ;; NOTE: init.el is generated from emacs.org.
+  ;;       Please edit that file instead.
+#+end_src
+
+** Packages
+
+#+begin_src emacs-lisp
+  ;; Initialize package sources
+  (require 'package)
+
+  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                           ("org" . "https://orgmode.org/elpa/")
+                           ("elpa" . "https://elpa.gnu.org/packages/")))
+
+  (package-initialize)
+  (unless package-archive-contents
+    (package-refresh-contents))
+
+  ;; Initialize use-package on non-Linux platforms
+  (unless (package-installed-p 'use-package)
+    (package-install 'use-package))
+
+  (require 'use-package)
+
+  (setq use-package-always-ensure t)
+#+end_src
+
+** evil
+
+#+begin_src emacs-lisp
+  (use-package evil
+    :init
+    (setq evil-want-integration t)
+    (setq evil-want-keybinding nil)
+    (setq evil-want-C-u-scroll t)
+    (setq evil-want-C-i-jump nil)
+    :config
+    (evil-mode 1)
+    (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+    (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+
+    ;; Use viual line motions outside of visual-line-mode buffers
+    (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+    (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+
+    (evil-set-initial-state 'messages-buffer-mode 'normal)
+    (evil-set-initial-state 'dashboard-mode 'normal))
+#+end_src
+
+evil-collection extends evil keybindings.
+
+#+begin_src emacs-lisp
+  (use-package evil-collection
+    :after evil
+    :config
+    (evil-collection-init))
+#+end_src
+
+Always display the touchscreen keyboard,
+even when the buffer is read-only.
+
+#+begin_src emacs-lisp
+  (setq touch-screen-display-keyboard t)
+#+end_src
+
+Text conversion means that key-presses are not directly
+committed to emacs and is necessary for auto-correct etc.
+It also breaks chords in evil-normal-state, so its disabled.
+
+#+begin_src emacs-lisp
+  (setq overriding-text-conversion-style nil)
+#+end_src
+
+** auto-tangle
+
+Tangle source-blocks on save; works together with
+~auto_tangle~ option and ~tangle~ ~header-arg~.
+
+#+begin_src emacs-lisp
+  (use-package org-auto-tangle
+    :hook (org-mode . org-auto-tangle-mode))
+#+end_src
+
+** org
+
+sane formatting in src-blocks.
+
+#+begin_src emacs-lisp
+  (setq org-src-tab-acts-natively t)
+#+end_src
+
+** magit
+
+#+begin_src emacs-lisp
+  (use-package magit
+    :defer t)
+#+end_src
