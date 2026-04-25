@@ -35,6 +35,42 @@
   ;;       Please edit that file instead.
 #+end_src
 
+** Littering
+
+Write custom variables into seperate file (so we don't touch init.el).
+
+#+begin_src emacs-lisp
+  (setq custom-file (concat user-emacs-directory "custom.el"))
+  (when (file-exists-p custom-file)
+    (load custom-file))
+#+end_src
+
+Don't write Lockfiles.
+
+#+begin_src emacs-lisp
+  (setq create-lockfiles nil)
+#+end_src
+
+Auto-save to the currently visited file.
+
+#+begin_src emacs-lisp
+  (auto-save-visited-mode 1)
+#+end_src
+
+Write auto-save-files _also_ to temp dir.
+
+#+begin_src emacs-lisp
+  (setq auto-save-file-name-transforms
+	`((".*" ,temporary-file-directory t)))
+#+end_src
+
+Write backups to temp dir.
+
+#+begin_src emacs-lisp
+  (setq backup-directory-alist
+	`((".*" . ,temporary-file-directory)))
+#+end_src
+
 ** Packages
 
 #+begin_src emacs-lisp
