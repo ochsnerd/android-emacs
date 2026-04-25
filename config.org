@@ -1,15 +1,21 @@
 #+auto_tangle: t
 
+* Prologue
+
+This file is the configuration for Emacs on my phone.
+
+The sourceblocks are tangled to ~early-init.el~ and ~init.el~
+using [[auto-tangle]].
 * early-init.el
 :PROPERTIES:
 :header-args: :tangle ~/.emacs.d/early-init.el
 :END:
 
-** Header
+** Preamble
 
 #+begin_src emacs-lisp
   ;; early-init.el -*- lexical-binding: t; -*-
-  ;; NOTE: early-init.el is generated from emacs.org.
+  ;; NOTE: early-init.el is generated from config.org.
   ;;       Please edit that file instead.
 #+end_src
 
@@ -27,11 +33,11 @@
 :header-args: :tangle ~/.emacs.d/init.el
 :END:
 
-** Header
+** Preamble
 
 #+begin_src emacs-lisp
   ;; init.el -*- lexical-binding: t; -*-
-  ;; NOTE: init.el is generated from emacs.org.
+  ;; NOTE: init.el is generated from config.org.
   ;;       Please edit that file instead.
 #+end_src
 
