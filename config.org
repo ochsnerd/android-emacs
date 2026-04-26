@@ -206,3 +206,44 @@ Adapted from vertico/README.org
     (minibuffer-prompt-properties
      '(read-only t cursor-intangible t face minibuffer-prompt)))
 #+end_src
+
+** Keybindings
+
+#+begin_src emacs-lisp
+  (use-package general
+    :config
+    (general-create-definer spc-leader
+  			  :states '(normal visual insert emacs)
+  			  :keymaps 'override
+  			  :prefix "SPC"
+  			  :non-normal-prefix "C-SPC")
+    (spc-leader
+     "w" 'evil-window-map
+     "h" 'help-command
+
+     "." 'find-file
+     "," 'ibuffer
+
+     "gg" 'magit
+     "gb" 'magit-blame
+
+     ;; "s" 'open-stuff
+     
+     "ni"  'org-insert-structure-template
+     "no"  'org-open-at-point
+     ;; "nrf" 'org-roam-node-find
+     ;; "nri" 'org-roam-node-insert
+     ;; "nrt" 'org-roam-tag-add
+     ))
+#+end_src
+
+~which-key~ is builtin.
+
+#+begin_src emacs-lisp
+  (use-package which-key
+  :ensure nil
+  :config
+  (setq which-key-idle-delay 0.3)
+  (which-key-mode 1))
+#+end_src
+
