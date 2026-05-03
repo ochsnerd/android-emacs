@@ -6,6 +6,13 @@ This file is the configuration for Emacs on my phone.
 
 The sourceblocks are tangled to ~early-init.el~ and ~init.el~
 using [[auto-tangle]].
+
+** Doing
+
+*** actually use it - how?
+*** encrypt files?
+*** org-roam?
+
 * early-init.el
 :PROPERTIES:
 :header-args: :tangle ~/.emacs.d/early-init.el
@@ -207,6 +214,16 @@ Adapted from vertico/README.org
      '(read-only t cursor-intangible t face minibuffer-prompt)))
 #+end_src
 
+From ~orderless~ readme.
+
+#+begin_src emacs-lisp
+  (use-package orderless
+    :custom
+    (completion-styles '(orderless basic))
+    (completion-category-overrides '((file (styles partial-completion))))
+    (completion-pcm-leading-wildcard t)) ;; Emacs 31: partial-completion behaves like substring
+#+end_src
+
 ** Keybindings
 
 #+begin_src emacs-lisp
@@ -247,3 +264,58 @@ Adapted from vertico/README.org
   (which-key-mode 1))
 #+end_src
 
+** Visual
+
+Clean up a bit
+
+#+begin_src emacs-lisp
+  (setq inhibit-startup-message t)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (tooltip-mode -1)
+#+end_src
+
+*** Font
+
+Download the ~.ttf~ file to ~/data/data/org.gnu.emacs/files/fonts~,
+this is the user font folder on android emacs. I'm using
+the variable-font version, but this is guarnteed to work.
+I used termux&wget to download.
+
+#+begin_src emacs-lisp
+  (set-face-attribute 'default nil
+  		    :font "Fira Code-19")
+#+end_src
+
+*** Theme
+
+#+begin_src emacs-lisp
+  (use-package doom-themes
+    :config
+    (setq
+     doom-themes-enable-bold t
+     doom-themes-enable-italic t)
+    (doom-themes-visual-bell-config)
+    (load-theme 'doom-solarized-light t)
+    (doom-themes-org-config))
+#+end_src
+
+*** Modeline
+
+#+begin_src emacs-lisp
+  (use-package all-the-icons)
+#+end_src
+
+Make sure to run these and choose
+~~/fonts/~ as installation targets.
+
+#+begin_src emacs-lisp :tangle no
+  (nerd-icons-install-fonts)
+  (all-the-icons-install-fonts)
+#+end_src
+
+#+begin_src emacs-lisp
+  (use-package doom-modeline
+    :config
+    (doom-modeline-mode 1))
+#+end_src
