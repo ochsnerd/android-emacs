@@ -177,6 +177,8 @@ sane formatting in src-blocks.
 #+begin_src emacs-lisp
   (use-package magit
     :defer t)
+
+  (setq package-install-upgrade-built-in t)
 #+end_src
 
 ** Completion
