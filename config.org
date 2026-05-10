@@ -244,7 +244,8 @@ From ~orderless~ readme.
      "gg" 'magit
      "gb" 'magit-blame
 
-     ;; "s" 'open-stuff
+     "s" 'my/open-stuff
+     "t" 'my/open-training
      
      "ni"  'org-insert-structure-template
      "no"  'org-open-at-point
@@ -319,3 +320,22 @@ Make sure to run these and choose
     :config
     (doom-modeline-mode 1))
 #+end_src
+
+** Training
+
+#+begin_src emacs-lisp
+  (defun my/open-training ()
+    "Open training.org in a new buffer."
+    (interactive)
+    (find-file "/storage/emulated/0/DropsyncFiles/training.org"))
+#+end_src
+
+** Stuff
+
+#+begin_src emacs-lisp
+  (defun my/open-stuff ()
+    "Open stuff.org in a new buffer."
+    (interactive)
+    (find-file "/storage/emulated/0/DropsyncFiles/stuff.org"))
+#+end_src
+
