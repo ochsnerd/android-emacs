@@ -1,5 +1,3 @@
-TODO: Move this stuff to a subfolder
-
 # Emacs for Android
 
 To allow Emacs on Android to access file from Termux,

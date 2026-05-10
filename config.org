@@ -7,9 +7,10 @@ This file is the configuration for Emacs on my phone.
 The sourceblocks are tangled to ~early-init.el~ and ~init.el~
 using [[auto-tangle]].
 
+The actual emacs-app comes from [[./emacs]].
+
 ** Doing
 
-*** actually use it - how?
 *** encrypt files?
 *** org-roam?
 
