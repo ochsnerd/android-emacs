@@ -281,8 +281,8 @@ Clean up a bit
 
 Download the ~.ttf~ file to ~/data/data/org.gnu.emacs/files/fonts~,
 this is the user font folder on android emacs. I'm using
-the variable-font version, but this is guarnteed to work.
-I used termux&wget to download.
+the variable-font version, but this is guaranteed to work.
+I used termux & wget to download.
 
 #+begin_src emacs-lisp
   (set-face-attribute 'default nil
