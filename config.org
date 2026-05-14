@@ -290,7 +290,6 @@ From ~orderless~ readme.
 Clean up a bit
 
 #+begin_src emacs-lisp
-  (setq inhibit-startup-message t)
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
   (tooltip-mode -1)
@@ -357,5 +356,12 @@ Make sure to run these and choose
     "Open stuff.org in a new buffer."
     (interactive)
     (find-file "/storage/emulated/0/DropsyncFiles/stuff.org"))
+#+end_src
+
+** Startup
+
+#+begin_src emacs-lisp
+  (setq inhibit-startup-message t)
+  (setq initial-buffer-choice "/storage/emulated/0/DropsyncFiles/stuff.org")
 #+end_src
 
