@@ -11,7 +11,6 @@ The actual emacs-app comes from [[./emacs]].
 
 ** Doing
 
-*** encrypt files?
 *** org-roam?
 
 * early-init.el
@@ -166,11 +165,29 @@ Tangle source-blocks on save; works together with
 
 ** org
 
-sane formatting in src-blocks.
+Sane formatting in src-blocks.
 
 #+begin_src emacs-lisp
   (setq org-src-tab-acts-natively t)
 #+end_src
+
+*** .org.gpg
+
+Installed ~gpg~ on termux, and imported
+my key via the commandline there.
+Theory: if I did that via emacs I would
+not have to set ~GNUPGHOME~.
+
+Need to make emacs ask for the passphrase,
+pinentry does not work.
+
+#+begin_src emacs-lisp
+  (setenv "GNUPGHOME" "/data/data/com.termux/files/home/.gnupg")
+  (setq epg-pinentry-mode 'loopback)
+#+end_src
+
+Because of ~epa-file-inhibit-auto-save~,
+emacs does not leak plaintext.
 
 ** magit
 
