@@ -299,9 +299,16 @@ in emacs (source: claude).
   (define-key key-translation-map (kbd "<volume-down>") (kbd "<escape>"))
 #+end_src
 
-Always show the keyboard.
+Always show the keyboard, also at startup
 #+begin_src emacs-lisp
   (setq touch-screen-display-keyboard t)
+
+  (defun my/show-keyboard ()
+    "Show the on-screen keyboard."
+    (interactive)
+    (frame-toggle-on-screen-keyboard (selected-frame) nil))
+
+  (add-hook 'emacs-startup-hook #'my/show-keyboard)
 #+end_src
 
 Buttons above the keyboard for modifier keys.
