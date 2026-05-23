@@ -285,13 +285,54 @@ From ~orderless~ readme.
   (which-key-mode 1))
 #+end_src
 
+** Phone Keyboard
+
+Make basic editing possible with the
+default keyboard.
+
+Esc and tab via volume key.
+Note that there's also ~<tab>~, one is ASCII,
+the other is console-event, both are used
+in emacs (source: claude).
+#+begin_src emacs-lisp
+  (define-key key-translation-map (kbd "<volume-up>") (kbd "TAB"))
+  (define-key key-translation-map (kbd "<volume-down>") (kbd "<escape>"))
+#+end_src
+
+Always show the keyboard.
+#+begin_src emacs-lisp
+  (setq touch-screen-display-keyboard t)
+#+end_src
+
+Buttons above the keyboard for modifier keys.
+The builtin ~modifier-bar~ is a child of
+the toolbar, so we need to enable that for
+it to show up.
+#+begin_src emacs-lisp
+  (tool-bar-mode 1)
+  (setq tool-bar-map (make-sparse-keymap))
+
+  (modifier-bar-mode 1)
+  (setq tool-bar-button-margin 30)
+  (set-frame-parameter nil 'tool-bar-position 'bottom)
+#+end_src
+
+Other avenues that I considered, but did
+not get to work:
+- using the menu-bar and populate it with
+  my own buttons, that failed because the
+  actual modifying behaviour was too hard
+  to implement for ai.
+- Using the tool-bar had the same problem,
+  plus buttons in the toolbar are icons,
+  not text.
+
 ** Visual
 
 Clean up a bit
 
 #+begin_src emacs-lisp
   (scroll-bar-mode -1)
-  (tool-bar-mode -1)
   (tooltip-mode -1)
 #+end_src
 
