@@ -390,6 +390,17 @@ Make sure to run these and choose
     (find-file "/storage/emulated/0/DropsyncFiles/training.org"))
 #+end_src
 
+Cleanly paste yt-links
+
+#+begin_src emacs-lisp
+(defun my/paste-clean-link ()
+  "Insert clipboard URL at point, stripping query parameters and fragment."
+  (interactive)
+  (let* ((raw (string-trim (current-kill 0)))
+         (clean (replace-regexp-in-string "[?#].*\\'" "" raw)))
+    (insert clean)))
+#+end_src
+
 ** Stuff
 
 #+begin_src emacs-lisp
