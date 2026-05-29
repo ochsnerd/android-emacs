@@ -272,6 +272,8 @@ From ~orderless~ readme.
      ;; "nrf" 'org-roam-node-find
      ;; "nri" 'org-roam-node-insert
      ;; "nrt" 'org-roam-tag-add
+
+     "z" 'save-buffer
      ))
 #+end_src
 
