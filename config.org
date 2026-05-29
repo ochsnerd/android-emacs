@@ -321,6 +321,9 @@ it to show up.
   (tool-bar-mode 1)
   (setq tool-bar-map (make-sparse-keymap))
 
+  (define-key tool-bar-map [dummy]
+  	    '(menu-item " " ignore :help "Keep the tool bar visible"))
+
   (modifier-bar-mode 1)
   (setq tool-bar-button-margin 30)
   (set-frame-parameter nil 'tool-bar-position 'bottom)
