@@ -11,8 +11,6 @@ The actual emacs-app comes from [[./emacs]].
 
 ** Doing
 
-*** org-roam?
-
 * early-init.el
 :PROPERTIES:
 :header-args: :tangle ~/.emacs.d/early-init.el
@@ -198,6 +196,24 @@ pinentry does not work.
 Because of ~epa-file-inhibit-auto-save~,
 emacs does not leak plaintext.
 
+*** org-roam
+
+#+begin_src elisp
+  (use-package org-roam
+  :ensure t
+  :init
+  (setq org-roam-v2-ack t)
+  (setq org-roam-directory
+        (file-truename
+         (expand-file-name
+  	"roam/"
+  	my/dropbox-dir)))
+  :custom
+  (setq org-roam-completion-everywhere t)
+  :config
+  (org-roam-db-autosync-mode))
+#+end_src
+
 ** magit
 
 #+begin_src emacs-lisp
@@ -279,9 +295,15 @@ From ~orderless~ readme.
      
      "ni"  'org-insert-structure-template
      "no"  'org-open-at-point
-     ;; "nrf" 'org-roam-node-find
-     ;; "nri" 'org-roam-node-insert
-     ;; "nrt" 'org-roam-tag-add
+     "nrf" 'org-roam-node-find
+     "nri" 'org-roam-node-insert
+     "nrt" 'org-roam-tag-add
+     "nrdd" 'org-roam-dailies-capture-today
+     "nrdt" 'org-roam-dailies-capture-tomorrow
+     "nrdy" 'org-roam-dailies-capture-yesterday
+     "nrdD" 'org-roam-dailies-goto-today
+     "nrdT" 'org-roam-dailies-goto-tomorrow
+     "nrdc" 'org-roam-dailies-goto-date
 
      "z" 'save-buffer
      ))
