@@ -388,8 +388,9 @@ the variable-font version, but this is guaranteed to work.
 I used termux & wget to download.
 
 #+begin_src emacs-lisp
-  (set-face-attribute 'default nil
-  		    :font "Fira Code-19")
+  (set-face-attribute
+   'default nil
+   :font "Fira Code-17")
 #+end_src
 
 *** Theme
