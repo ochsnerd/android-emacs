@@ -275,6 +275,7 @@ From ~orderless~ readme.
 
      "s" 'my/open-stuff
      "t" 'my/open-training
+     "c" 'my/open-config
      
      "ni"  'org-insert-structure-template
      "no"  'org-open-at-point
@@ -429,6 +430,18 @@ Cleanly paste yt-links
     "Open stuff.org in a new buffer."
     (interactive)
     (find-file (expand-file-name "stuff.org" my/dropbox-dir)))
+#+end_src
+
+** Config
+
+Open this file, assuming the repo is at
+~~/android-emacs~.
+
+#+begin_src emacs-lisp
+  (defun my/open-config ()
+    "Open config.org in a new buffer."
+    (interactive)
+    (find-file "~/android-emacs/config.org"))
 #+end_src
 
 ** Startup
