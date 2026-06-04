@@ -20,7 +20,7 @@ The actual emacs-app comes from [[./emacs]].
 
 #+begin_src emacs-lisp
   ;; early-init.el -*- lexical-binding: t; -*-
-  ;; NOTE: early-init.el is generated from config.org.
+  ;; NOTE: early-init.el is generated from readme.org.
   ;;       Please edit that file instead.
 #+end_src
 
@@ -42,7 +42,7 @@ The actual emacs-app comes from [[./emacs]].
 
 #+begin_src emacs-lisp
   ;; init.el -*- lexical-binding: t; -*-
-  ;; NOTE: init.el is generated from config.org.
+  ;; NOTE: init.el is generated from readme.org.
   ;;       Please edit that file instead.
 #+end_src
 
@@ -464,7 +464,7 @@ Open this file, assuming the repo is at
   (defun my/open-config ()
     "Open config.org in a new buffer."
     (interactive)
-    (find-file "~/android-emacs/config.org"))
+    (find-file "~/android-emacs/readme.org"))
 #+end_src
 
 ** Startup
