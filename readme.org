@@ -432,6 +432,12 @@ Make sure to run these and choose
     (doom-modeline-mode 1))
 #+end_src
 
+*** Word Wrap
+
+#+begin_src elisp
+  (global-visual-line-mode t)
+#+end_src
+
 ** Training
 
 #+begin_src emacs-lisp
