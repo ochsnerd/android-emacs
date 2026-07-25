@@ -178,6 +178,12 @@ Sane formatting in src-blocks.
   (setq org-src-tab-acts-natively t)
 #+end_src
 
+Start capuring in insert-state.
+
+#+begin_src emacs-lisp
+  (add-hook 'org-capture-mode-hook #'evil-insert-state)
+#+end_src
+
 *** .org.gpg
 
 Installed ~gpg~ on termux, and imported
