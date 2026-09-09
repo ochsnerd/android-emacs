@@ -322,6 +322,7 @@ From ~orderless~ readme.
      
      "ni"  'org-insert-structure-template
      "no"  'org-open-at-point
+     "nn"  'org-todo
      "nrf" 'org-roam-node-find
      "nri" 'org-roam-node-insert
      "nrt" 'org-roam-tag-add
@@ -332,8 +333,7 @@ From ~orderless~ readme.
      "nrdT" 'org-roam-dailies-goto-tomorrow
      "nrdc" 'org-roam-dailies-goto-date
 
-     "z" 'save-buffer
-     ))
+     "z" 'save-buffer))
 #+end_src
 
 ~which-key~ is builtin.
