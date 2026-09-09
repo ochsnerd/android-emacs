@@ -175,7 +175,13 @@ to my Dropbox.
 Sane formatting in src-blocks.
 
 #+begin_src emacs-lisp
-  (setq org-src-tab-acts-natively t)
+  (use-package org
+    :ensure nil
+    :custom
+    (org-src-tab-acts-natively t)
+    (org-confirm-babel-evaluate 'nil)
+    (org-todo-keywords
+     '((sequence "TODO" "IN-PROGRESS" "REVIEW" "|" "DONE" "CANCELED"))))
 #+end_src
 
 Start capuring in insert-state.
@@ -207,6 +213,7 @@ emacs does not leak plaintext.
 #+begin_src elisp
   (use-package org-roam
   :ensure t
+  :defer t
   :init
   (setq org-roam-v2-ack t)
   (setq org-roam-directory
@@ -215,8 +222,22 @@ emacs does not leak plaintext.
   	"roam/"
   	my/dropbox-dir)))
   :custom
-  (setq org-roam-completion-everywhere t)
+  (org-roam-completion-everywhere t)
   :config
+  (defvar my/org-roam-daily-head
+    (concat "#+title: %<%Y-%m-%d>\n"
+            "* [0/0] Tasks\n"
+            "* Journal\n"
+            "* Refile\n"))
+
+  (setq org-roam-dailies-capture-templates
+        `(("d" "default" entry "* %?"
+           :target (file+head+olp "%<%Y-%m-%d>.org" ,my/org-roam-daily-head ("Refile")))
+          ("j" "journal" entry "* %?"
+           :target (file+head+olp "%<%Y-%m-%d>.org" ,my/org-roam-daily-head ("Journal")))
+          ("t" "task" entry "* TODO %?"
+           :target (file+head+olp "%<%Y-%m-%d>.org" ,my/org-roam-daily-head ("Tasks")))))
+
   (org-roam-db-autosync-mode))
 #+end_src
 
