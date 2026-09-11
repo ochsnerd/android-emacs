@@ -9,6 +9,17 @@ using [[auto-tangle]].
 
 The actual emacs-app comes from [[./emacs]].
 
+** shell
+
+The emacs-app is compiled&signed such that it
+can access executables installed by termux.
+
+termux home is at
+
+#+begin_src
+  /data/data/com.termux/files/home/
+#+end_src
+
 ** Doing
 
 * early-init.el
