@@ -339,10 +339,10 @@ From ~orderless~ readme.
      "nrt" 'org-roam-tag-add
      "nrdd" 'org-roam-dailies-capture-today
      "nrdt" 'org-roam-dailies-capture-tomorrow
-     "nrdy" 'org-roam-dailies-capture-yesterday
+     "nrdc" 'org-roam-dailies-capture-date
      "nrdD" 'org-roam-dailies-goto-today
      "nrdT" 'org-roam-dailies-goto-tomorrow
-     "nrdc" 'org-roam-dailies-goto-date
+     "nrdC" 'org-roam-dailies-goto-date
 
      "z" 'save-buffer))
 #+end_src
