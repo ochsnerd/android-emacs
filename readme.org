@@ -1,3 +1,4 @@
+#+TITLE: Emacs Configuration
 #+auto_tangle: t
 
 * Prologue
@@ -24,7 +25,7 @@ termux home is at
 
 * early-init.el
 :PROPERTIES:
-:header-args: :tangle ~/.emacs.d/early-init.el
+:header-args: :tangle ~/.emacs.d/early-init.el :results silent
 :END:
 
 ** Preamble
@@ -46,7 +47,7 @@ termux home is at
 
 * init.el
 :PROPERTIES:
-:header-args: :tangle ~/.emacs.d/init.el
+:header-args: :tangle ~/.emacs.d/init.el :results silent
 :END:
 
 ** Preamble
