@@ -311,13 +311,13 @@ From ~orderless~ readme.
 
 #+begin_src emacs-lisp
   (use-package general
+    :demand t
     :config
-    (general-create-definer spc-leader
-  			  :states '(normal visual insert emacs)
-  			  :keymaps 'override
-  			  :prefix "SPC"
-  			  :non-normal-prefix "C-SPC")
-    (spc-leader
+    (general-define-key
+     :states '(normal visual insert emacs)
+     :keymaps 'override
+     :prefix "SPC"
+     :non-normal-prefix "C-SPC"
      "w" 'evil-window-map
      "h" 'help-command
 
