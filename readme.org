@@ -173,15 +173,6 @@ Tangle source-blocks on save; works together with
     :hook (org-mode . org-auto-tangle-mode))
 #+end_src
 
-** Synced files
-
-I use the Dropsync app to keep this synced
-to my Dropbox.
-
-#+begin_src elisp
-  (defvar my/dropbox-dir (file-name-as-directory "/storage/emulated/0/DropsyncFiles"))
-#+end_src
-
 ** git sync
 
 When a repo has a script git-sync (https://github.com/simonthum/git-sync) in it's root, call it on save.
@@ -235,6 +226,12 @@ Start capuring in insert-state.
   (add-hook 'org-capture-mode-hook #'evil-insert-state)
 #+end_src
 
+*** notes
+
+#+begin_src elisp
+  (defvar my/notes-dir (file-name-as-directory "~/org"))
+#+end_src
+
 *** .org.gpg
 
 Installed ~gpg~ on termux, and imported
@@ -265,7 +262,7 @@ emacs does not leak plaintext.
         (file-truename
          (expand-file-name
   	"roam/"
-  	my/dropbox-dir)))
+  	my/notes-dir)))
   :custom
   (org-roam-completion-everywhere t)
   :config
@@ -510,7 +507,7 @@ Make sure to run these and choose
   (defun my/open-training ()
     "Open training.org in a new buffer."
     (interactive)
-    (find-file (expand-file-name "training.org" my/dropbox-dir)))
+    (find-file (expand-file-name "training.org" my/notes-dir)))
 #+end_src
 
 Cleanly paste yt-links
@@ -530,7 +527,7 @@ Cleanly paste yt-links
   (defun my/open-stuff ()
     "Open stuff.org in a new buffer."
     (interactive)
-    (find-file (expand-file-name "stuff.org" my/dropbox-dir)))
+    (find-file (expand-file-name "stuff.org" my/notes-dir)))
 #+end_src
 
 ** Config
@@ -549,6 +546,6 @@ Open this file, assuming the repo is at
 
 #+begin_src emacs-lisp
   (setq inhibit-startup-message t)
-  (setq initial-buffer-choice (expand-file-name "stuff.org" my/dropbox-dir))
+  (setq initial-buffer-choice (expand-file-name "stuff.org" my/notes-dir))
 #+end_src
 
