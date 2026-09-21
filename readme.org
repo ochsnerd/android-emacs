@@ -21,6 +21,12 @@ termux home is at
   /data/data/com.termux/files/home/
 #+end_src
 
+emacs home is at
+
+#+begin_src
+  /data/data/org.gnu.emacs/files/
+#+end_src
+
 ** Doing
 
 * early-init.el
