@@ -273,7 +273,7 @@ emacs does not leak plaintext.
   :config
   (defvar my/org-roam-daily-head
     (concat "#+title: %<%Y-%m-%d>\n"
-            "* [0/0] Tasks\n"
+            "* Tasks\n"
             "* Journal\n"
             "* Refile\n"))
 
