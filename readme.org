@@ -220,6 +220,7 @@ Sane formatting in src-blocks.
   (use-package org
     :ensure nil
     :custom
+    (org-tags-column 0)
     (org-src-tab-acts-natively t)
     (org-confirm-babel-evaluate 'nil)
     (org-todo-keywords
