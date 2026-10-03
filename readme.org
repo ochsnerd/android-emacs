@@ -381,6 +381,7 @@ From ~orderless~ readme.
      "ni"  'org-insert-structure-template
      "no"  'org-open-at-point
      "nn"  'org-todo
+     "nc"  'org-ctrl-c-ctrl-c
      "nrf" 'org-roam-node-find
      "nri" 'org-roam-node-insert
      "nrt" 'org-roam-tag-add
