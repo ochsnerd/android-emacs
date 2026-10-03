@@ -273,10 +273,13 @@ emacs does not leak plaintext.
   (org-roam-completion-everywhere t)
   :config
   (defvar my/org-roam-daily-head
-    (concat "#+title: %<%Y-%m-%d>\n"
-            "* Tasks\n"
-            "* Journal\n"
-            "* Refile\n"))
+      (concat ":PROPERTIES:\n"
+  	    ":ID:       daily-%<%Y-%m-%d>\n"
+  	    ":END:\n"
+  	    "#+title: %<%Y-%m-%d>\n"
+  	    "* Tasks\n"
+  	    "* Journal\n"
+  	    "* Refile\n"))
 
   (setq org-roam-dailies-capture-templates
         `(("d" "default" entry "* %?"
