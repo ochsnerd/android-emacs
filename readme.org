@@ -224,7 +224,7 @@ Sane formatting in src-blocks.
     (org-src-tab-acts-natively t)
     (org-confirm-babel-evaluate 'nil)
     (org-todo-keywords
-     '((sequence "TODO" "IN-PROGRESS" "REVIEW" "|" "DONE" "CANCELED"))))
+     '((sequence "TODO(t)" "IN-PROGRESS(p)" "REVIEW(r)" "|" "DONE(d)" "CANCELED(c)"))))
 #+end_src
 
 Start capuring in insert-state.
