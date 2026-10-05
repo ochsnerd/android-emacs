@@ -374,26 +374,33 @@ From ~orderless~ readme.
      "." 'find-file
      "," 'ibuffer
 
+     "g" '(:ignore t :which-key "magit")
      "gg" 'magit
      "gb" 'magit-blame
 
-     "s" 'my/open-stuff
-     "t" 'my/open-training
-     "c" 'my/open-config
+     "f" '(:ignore t :which-key "files")
+     "fs" 'my/open-stuff
+     "ft" 'my/open-training
+     "fc" 'my/open-config
      
+     "n" '(:ignore t :which-key "org")
      "ni"  'org-insert-structure-template
      "no"  'org-open-at-point
      "nn"  'org-todo
      "nc"  'org-ctrl-c-ctrl-c
+     "nr" '(:ignore t :which-key "org-roam")
      "nrf" 'org-roam-node-find
      "nri" 'org-roam-node-insert
      "nrt" 'org-roam-tag-add
-     "nrdd" 'org-roam-dailies-capture-today
-     "nrdt" 'org-roam-dailies-capture-tomorrow
-     "nrdc" 'org-roam-dailies-capture-date
-     "nrdD" 'org-roam-dailies-goto-today
-     "nrdT" 'org-roam-dailies-goto-tomorrow
-     "nrdC" 'org-roam-dailies-goto-date
+
+     "d" '(:ignore t :which-key "org-roam-dailies")
+     "dd" #'org-roam-dailies-capture-today
+     "dt" #'org-roam-dailies-capture-tomorrow
+     "dc" #'org-roam-dailies-capture-date
+     "dD" #'org-roam-dailies-goto-today
+     "dT" #'org-roam-dailies-goto-tomorrow
+     "dY" #'org-roam-dailies-goto-yesterday
+     "dC" #'org-roam-dailies-goto-date
 
      "z" 'save-buffer))
 #+end_src
